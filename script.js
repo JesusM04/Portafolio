@@ -94,8 +94,10 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileButtons = document.querySelectorAll('.mobile-menu .nav-button'); // Botones dentro del menú móvil
 
 // Alternar el menú móvil cuando se haga clic en el icono del menú
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('active'); // Alterna la clase 'active'
+mobileButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    mobileMenu.style.display = 'none'; // Ocultar el menú móvil
+  });
 });
 
 // Cerrar el menú móvil después de hacer clic en un botón dentro de él
