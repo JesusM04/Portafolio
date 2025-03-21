@@ -91,7 +91,16 @@ setInterval(nextImage, 5000);
 // PARA EL TOGGLE
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
+const mobileButtons = document.querySelectorAll('.mobile-menu .nav-button'); // Botones dentro del menú móvil
 
+// Alternar el menú móvil cuando se haga clic en el icono del menú
 menuToggle.addEventListener('click', () => {
   mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Cerrar el menú móvil después de hacer clic en un botón dentro de él
+mobileButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    mobileMenu.style.display = 'none';  // Ocultar el menú móvil
+  });
 });
