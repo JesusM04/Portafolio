@@ -1311,7 +1311,7 @@ body {
       font-size: 1.5rem;
       cursor: pointer;
       position: absolute;
-      top: calc(50% - 0.85rem); /* Centra verticalmente el botón */
+      top: calc(50% - 0.95rem); /* Centra verticalmente el botón */
       right: 20px;
       z-index: 11;
     }
