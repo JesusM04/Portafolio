@@ -1,0 +1,486 @@
+/* Variables Globales */
+:root {
+  --primary-color: #151515; /* Negro elegante */
+  --secondary-color: #d62828; /* Rojo vibrante */
+  --text-color: #f8f9fa; /* Blanco suave */
+  --background-color: #0a0a0a; /* Negro más oscuro */
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Lato', sans-serif;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  background: rgba(21, 21, 21, 0.95);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: var(--font-primary);
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-buttons {
+  display: flex;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover, .nav-button.active {
+  color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Estilos para el menú móvil */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none; /* Oculto por defecto */
+}
+
+.mobile-menu {
+  display: none; /* Oculto por defecto */
+  flex-direction: column;
+  position: absolute;
+  top: 100%; /* Coloca el menú debajo de la barra de navegación */
+  left: 0;
+  width: 100%;
+  background: rgba(21, 21, 21, 0.95);
+  padding: 20px;
+  z-index: 101; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Media query para mostrar el menú móvil en pantallas pequeñas */
+@media (max-width: 768px) {
+  .nav-buttons {
+      display: none; /* Oculta los botones de navegación en pantallas pequeñas */
+  }
+
+  .menu-toggle {
+      display: block; /* Muestra el botón de menú en pantallas pequeñas */
+  }
+
+  .mobile-menu.active {
+      display: flex; /* Muestra el menú móvil cuando está activo */
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 0px;
+}
+
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+/* Estilos del Hero Header */
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* Espacio entre el header y el subtítulo */
+}
+
+.hero-logo {
+  max-width: 200px; /* Ajusta el tamaño máximo de la imagen */
+  height: 200px;
+  border-radius: 50%; /* Hace la imagen circular */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Añade una sombra */
+  margin-bottom: 20px; /* Espacio entre la imagen y el título */
+  transition: transform 0.3s ease; /* Añade una transición suave */
+}
+
+.hero-img {
+  max-width: 450px; /* Ajusta el tamaño máximo de la imagen */
+  height: 200px;
+  border-radius: 80%; /* Hace la imagen circular */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Añade una sombra */
+  margin-bottom: 20px; /* Espacio entre la imagen y el título */
+  transition: transform 0.3s ease; /* Añade una transición suave */
+}
+
+.hero-logo:hover {
+  transform: scale(1.1); /* Aumenta ligeramente la imagen al pasar el ratón */
+}
+
+.phantom-title {
+  font-family: var(--font-primary);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0; /* Elimina el margen inferior del título */
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.8)); /* Degradado oscuro */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.hero-logo {
+  width: 150px; /* Ajusta el tamaño del logo */
+  margin-bottom: 20px;
+}
+
+.phantom-title {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.phantom-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  max-width: 1200px;
+  line-height: 1.7;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-in-out;
+  text-align: center;
+}
+
+/* SECCIÓN NOSOTROS */
+.ventana {
+  padding: 80px 0;
+  background-color: var(--primary-color);
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: var(--text-color);
+  margin-bottom: 60px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--secondary-color), #ffcc00);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nosotros-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.nosotros-item {
+  background-color: var(--background-color);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 280px;
+  position: relative;
+}
+
+.nosotros-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.nosotros-item:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.nosotros-text {
+  font-size: 1.3rem;
+  color: var(--text-color);
+  margin: 25px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nosotros-text::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--secondary-color);
+  margin: 10px auto 0;
+  transition: width 0.3s ease;
+}
+
+.nosotros-item:hover .nosotros-text::after {
+  width: 80px;
+}
+
+/* SECCIÓN PROYECTOS */
+.proyectos-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.card {
+  background-color: var(--background-color);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.proyecto-imagen {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.proyecto-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .proyecto-imagen img {
+  transform: scale(1.1);
+}
+
+.proyecto-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.proyecto-info h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.proyecto-info p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.proyecto-enlace {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.proyecto-enlace:hover {
+  background-color: #ffcc00;
+}
+
+/* FOOTER */
+
+/* ANIMACIONES */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* FOOTER */
+.footer {
+  background: var(--primary-color);
+  padding: 60px 20px; /* Aumenta el padding para más espacio */
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Permite que las secciones se envuelvan en pantallas pequeñas */
+}
+
+.footer-section {
+  margin-bottom: 30px; /* Espacio entre las secciones */
+}
+
+.footer-section h3 {
+  color: var(--secondary-color);
+  font-size: 1.8rem; /* Aumenta el tamaño del título */
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-transform: uppercase; /* Títulos en mayúsculas */
+}
+
+.footer-section p {
+  font-size: 1.2rem; /* Aumenta el tamaño del texto */
+  color: var(--text-color);
+  line-height: 1.8; /* Mejora el espaciado entre líneas */
+  margin-bottom: 10px;
+}
+
+.footer-section i {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+  color: var(--secondary-color);
+}
+
+.social-links {
+  text-align: center; /* Centra los iconos en pantallas pequeñas */
+}
+
+.social-icons a {
+  font-size: 2rem; /* Aumenta el tamaño de los iconos */
+  margin: 0 15px; /* Aumenta el espacio entre los iconos */
+  color: var(--secondary-color);
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  margin-top: 50px; /* Aumenta el margen superior */
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
